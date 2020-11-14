@@ -1,0 +1,20 @@
+const buttons= [{id: "zero", value: 0, type: "num"},
+              {id: "one", value: 1, type: "num"},
+              {id: "two", value: 2, type: "num"},
+              {id: "three", value: 3, type: "num"},
+              {id: "four", value: 4, type: "num"},
+              {id: "five", value: 5, type: "num"},
+              {id: "six", value: 6, type: "num"},
+              {id: "seven", value: 7, type: "num"},
+              {id: "eight", value: 8, type: "num"},
+              {id: "nine", value: 9, type: "num"},
+              {id: "add", value: "+", type: "operator"},
+              {id: "subtract", value: "-", type: "operator"},
+              {id: "multiply", value: "*", type: "operator"},
+              {id: "divide", value: "/", type: "operator"},
+              {id: "equals", value: "=", type: "executor"},
+              {id: "decimal", value: ".", type: "decimal"},
+              {id: "clear", value: "clear", type: "executor"},
+];
+
+module.exports = {data: buttons}
