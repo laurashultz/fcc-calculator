@@ -15,6 +15,7 @@ class Calculator extends React.Component{
       calc: [0,''],
       lastClick: ''
     });
+    this.onKeyPress = this.onKeyPress.bind(this);
     this.onClick = this.onClick.bind(this);
     this.doMath = this.doMath.bind(this);
     this.handleNum = this.handleNum.bind(this);
@@ -22,25 +23,43 @@ class Calculator extends React.Component{
     this.handleOp = this.handleOp.bind(this);
     this.handleExecute = this.handleExecute.bind(this);
   }
-  /* this section will be updated to handle key presses for accessibility but has not yet been implemented
+  
 componentDidMount() {
-    document.addEventListener('keypress', this.onKeyPress);
+    document.addEventListener('keydown', this.onKeyPress);
   }
 componentWillUnmount() {
-    document.removeEventListener('keypress', this.onKeyPress);
+    document.removeEventListener('keydown', this.onKeyPress);
   }
  onKeyPress(event){
- } */
+  let numChk = myBtns.findIndex(x=> x.value === parseInt(event.key)); //numChk - if the key pressed was 0-9, it returns the number in number format (also the index of the appropriate object in myBtns)
+  let opChk = myBtns.findIndex(x=> x.value === event.key); //if key pressed was an operator or decimal, returns the index of the appropriate object in myBtns
+  let exChk;
+  if(event.key === 'Delete'){
+    exChk = 16;  //index of 'clear' in myBtns
+  } else if(event.key === 'Enter'){
+    exChk = 14; //index of '=' in myBtns
+  } 
+
+   let mem = (this.state.mem.length !== 0);
+  if(numChk>=0){
+    this.handleNum(myBtns[numChk].value,mem);
+  } else if(opChk===15){ //checks if opChk is a decimal
+    this.handleDec();
+  } else if(opChk >=0){
+    this.handleOp(myBtns[opChk].value,mem);
+  } else if (exChk>=0){
+    this.handleExecute(myBtns[exChk].value,mem);
+  } else{
+    return;
+  }
+
+ }
 /*the onClick method handles any button click*/
  onClick(event){
 let val = event.target.value;
 let type = event.target.dataset.type;
-let mem; 
-if (this.state.mem.length === 0){ //just for checking whether there is a nonzero string in mem or not because several methods check this
-mem = false;  
-} else{
-mem = true;
-}
+let mem = (this.state.mem.length !== 0);
+
 /*this switch statement checks the 'type' property of the object corresponding to the button 
 that was clicked, and calls the appropriate method to handle updating the state */
 switch(type){
