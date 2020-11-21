@@ -7,7 +7,7 @@
 * The app itself is intended to be responsive to changes in device size and text size, so feel free to zoom in or out.
 
 ## Web App Deployment
-* If you would like to view the app itself, it's been deployed on GitHub pages! Please see [the deployed Calculator web app here](https://loofmot.github.io/fcc-calculator/).
+* If you would like to view the app itself, it's been deployed on GitHub pages! Please see [the deployed Calculator web app here](https://laurashultz.github.io/fcc-calculator/).
 * If you are interested in downloading the project and viewing it locally, you may clone the repo, navigate to the directory, and run the command `npm start` to view it in a local environment. If the command is run in the root directory of the repository, the app will be viewable by navigating to "localhost:3000" in your web browser.
 
 ## Future Updates
